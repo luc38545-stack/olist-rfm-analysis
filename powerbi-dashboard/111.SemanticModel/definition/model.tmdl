@@ -1,0 +1,26 @@
+model Model
+	culture: zh-CN
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: zh-CN
+	valueFilterBehavior: independent
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["pbi_dim_segment","pbi_fact_customer","pbi_fact_order"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table pbi_dim_segment
+ref table pbi_fact_customer
+ref table DateTableTemplate_4b32eae5-3e6e-431c-8422-a89f6b7736cd
+ref table LocalDateTable_b2c4bee6-9ccc-430a-8653-f60020a4d889
+ref table LocalDateTable_0ddbcab0-451c-4d39-b864-f744ab8543e6
+ref table pbi_fact_order
+ref table LocalDateTable_8d3ca529-015a-406f-86d9-22a63e891a9c
+ref table 日期表
+
+ref cultureInfo zh-CN
+

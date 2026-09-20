@@ -1,0 +1,110 @@
+table pbi_fact_order
+	lineageTag: 90218256-c0e7-4a0e-9b89-b7d904f082b1
+
+	column order_id
+		dataType: string
+		lineageTag: 2ff6ab5d-62e5-405e-a3e9-3354d10d554f
+		summarizeBy: none
+		sourceColumn: order_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_id
+		dataType: string
+		lineageTag: e63f06b9-50b1-4ce9-8f64-94b5163f5fca
+		summarizeBy: none
+		sourceColumn: customer_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column segment
+		dataType: string
+		lineageTag: c43bf2a0-fde1-49f7-b91e-213cc1288a0e
+		summarizeBy: none
+		sourceColumn: segment
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 3b4018bc-dee3-4c22-a6b1-b883ae8dfdfa
+		summarizeBy: none
+		sourceColumn: order_date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column order_year
+		dataType: int64
+		formatString: 0
+		lineageTag: 09e27bda-79c0-416d-afa0-6d156cdd0419
+		summarizeBy: sum
+		sourceColumn: order_year
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_month
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 0662d431-944e-4826-9dd0-8492054af6c1
+		summarizeBy: none
+		sourceColumn: order_month
+
+		variation 变体
+			isDefault
+			relationship: fd2de7fe-d8f2-4b0f-bd40-d77562655368
+			defaultHierarchy: LocalDateTable_8d3ca529-015a-406f-86d9-22a63e891a9c.日期层次结构
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column state
+		dataType: string
+		lineageTag: 22ce75d9-aaab-4e1a-95c8-ab23384bce92
+		summarizeBy: none
+		sourceColumn: state
+
+		annotation SummarizationSetBy = Automatic
+
+	column payment_value
+		dataType: double
+		lineageTag: 4ff801e9-b985-4e3a-b734-c005800d1430
+		summarizeBy: sum
+		sourceColumn: payment_value
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column payment_type
+		dataType: string
+		lineageTag: e5e18925-4da4-45a1-9b3d-09a11de59069
+		summarizeBy: none
+		sourceColumn: payment_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column review_score
+		dataType: int64
+		formatString: 0
+		lineageTag: 00c0ee7d-bf78-442e-8515-d4629b8bb1c1
+		summarizeBy: sum
+		sourceColumn: review_score
+
+		annotation SummarizationSetBy = Automatic
+
+	partition pbi_fact_order = m
+		mode: import
+		source =
+				let
+				  源 = Csv.Document(File.Contents("C:\olist_powerbi_data\pbi_fact_order.csv"), [Delimiter = ",", Columns = 10, Encoding = 65001, QuoteStyle = QuoteStyle.None]),
+				  已提升标题 = Table.PromoteHeaders(源, [PromoteAllScalars = true]),
+				  已更改列类型 = Table.TransformColumnTypes(已提升标题, {{"order_id", type text}, {"customer_id", type text}, {"segment", type text}, {"order_date", type date}, {"order_year", Int64.Type}, {"order_month", type date}, {"state", type text}, {"payment_value", type number}, {"payment_type", type text}, {"review_score", Int64.Type}}, "zh-Hans")
+				in
+				  已更改列类型
+
+	annotation PBI_ResultType = Table
+

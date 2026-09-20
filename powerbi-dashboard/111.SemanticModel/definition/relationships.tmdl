@@ -1,0 +1,27 @@
+relationship 7721a374-889f-47cb-bd27-2f09b816d192
+	joinOnDateBehavior: datePartOnly
+	fromColumn: pbi_fact_customer.first_order_date
+	toColumn: LocalDateTable_b2c4bee6-9ccc-430a-8653-f60020a4d889.Date
+
+relationship fc3a9ead-462f-4a9b-9ca7-53193de2763d
+	joinOnDateBehavior: datePartOnly
+	fromColumn: pbi_fact_customer.last_order_date
+	toColumn: LocalDateTable_0ddbcab0-451c-4d39-b864-f744ab8543e6.Date
+
+relationship fd2de7fe-d8f2-4b0f-bd40-d77562655368
+	joinOnDateBehavior: datePartOnly
+	fromColumn: pbi_fact_order.order_month
+	toColumn: LocalDateTable_8d3ca529-015a-406f-86d9-22a63e891a9c.Date
+
+relationship 094bb8c1-d627-4ec3-9533-980261f42e59
+	fromColumn: pbi_fact_customer.segment
+	toColumn: pbi_dim_segment.segment
+
+relationship ff43759f-27da-47b0-753d-a8bdd3f5a230
+	fromColumn: pbi_fact_order.segment
+	toColumn: pbi_dim_segment.segment
+
+relationship 3a918803-7a5f-cef2-d7f5-2708b0857881
+	fromColumn: pbi_fact_order.order_date
+	toColumn: 日期表.Date
+

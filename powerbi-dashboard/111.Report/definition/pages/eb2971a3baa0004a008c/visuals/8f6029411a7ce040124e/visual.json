@@ -1,0 +1,374 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "8f6029411a7ce040124e",
+  "position": {
+    "x": 380.64329966901471,
+    "y": 295.4765339896461,
+    "z": 3000,
+    "height": 356.30993804633795,
+    "width": 750.85801578545363,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "pbi_dim_segment"
+                    }
+                  },
+                  "Property": "segment"
+                }
+              },
+              "queryRef": "pbi_dim_segment.segment",
+              "nativeQueryRef": "segment",
+              "active": true
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "pbi_fact_customer"
+                    }
+                  },
+                  "Property": "客户数"
+                }
+              },
+              "queryRef": "pbi_fact_customer.客户数",
+              "nativeQueryRef": "客户数"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "pbi_fact_customer"
+                    }
+                  },
+                  "Property": "客户占比"
+                }
+              },
+              "queryRef": "pbi_fact_customer.客户占比",
+              "nativeQueryRef": "客户占比"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "pbi_fact_customer"
+                    }
+                  },
+                  "Property": "交易额"
+                }
+              },
+              "queryRef": "pbi_fact_customer.交易额",
+              "nativeQueryRef": "交易额"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "pbi_fact_customer"
+                    }
+                  },
+                  "Property": "交易额占比"
+                }
+              },
+              "queryRef": "pbi_fact_customer.交易额占比",
+              "nativeQueryRef": "交易额占比"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "pbi_fact_customer"
+                    }
+                  },
+                  "Property": "人均累计消费"
+                }
+              },
+              "queryRef": "pbi_fact_customer.人均累计消费",
+              "nativeQueryRef": "人均累计消费"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "pbi_fact_customer"
+                    }
+                  },
+                  "Property": "复购率"
+                }
+              },
+              "queryRef": "pbi_fact_customer.复购率",
+              "nativeQueryRef": "复购率"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "pbi_fact_customer"
+                  }
+                },
+                "Property": "交易额"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "grid": [
+        {
+          "properties": {
+            "gridHorizontal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "gridVertical": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "backColorSecondary": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#f3f3f3'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dropShadow": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'客户分群核心指标'"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Microsoft YaHei'"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'left'"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "bf214fc552c811b34679",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "pbi_fact_customer"
+              }
+            },
+            "Property": "客户数"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "7b3d3676610294a80e69",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "pbi_fact_customer"
+              }
+            },
+            "Property": "客户占比"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "f8c33f89b6706b51113c",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "pbi_fact_customer"
+              }
+            },
+            "Property": "交易额"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "81258ab708400bd836cd",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "pbi_fact_customer"
+              }
+            },
+            "Property": "交易额占比"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "97456294ea3d87175991",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "pbi_fact_customer"
+              }
+            },
+            "Property": "人均累计消费"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "c7254a4c2854a1ec7cea",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "pbi_fact_customer"
+              }
+            },
+            "Property": "复购率"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "6c52f339448b57453b1d",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "pbi_dim_segment"
+              }
+            },
+            "Property": "segment"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

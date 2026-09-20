@@ -1,0 +1,52 @@
+table 日期表
+	lineageTag: 30ce2366-8cbd-451e-9c59-d7545007fa68
+	dataCategory: Time
+
+	column Date
+		isKey
+		formatString: General Date
+		lineageTag: 27a07edc-964d-4f5f-8367-b74aeb6dd473
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 年
+		formatString: 0
+		lineageTag: 67f337d8-48a8-453b-bf4f-35f73d8d6fa6
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [年]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 月
+		lineageTag: 02a53154-32fa-4f11-8871-50bc9af8dbc4
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [月]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 年季度
+		lineageTag: 3c6b2e71-fea8-4a4b-a1fd-8cc17dd4a20b
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [年季度]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 日期表 = calculated
+		mode: import
+		source =
+				
+				ADDCOLUMNS(
+				    CALENDAR( DATE(2016,10,1), DATE(2018,8,31) ),
+				    "年", YEAR([Date]),
+				    "月", FORMAT([Date], "YYYY-MM"),
+				    "年季度", YEAR([Date]) & "Q" & QUARTER([Date])
+				)
+
+	annotation PBI_Id = d757ed588bb049d68144687be16a5e2a
+

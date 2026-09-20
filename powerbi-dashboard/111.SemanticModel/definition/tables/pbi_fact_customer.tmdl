@@ -1,0 +1,220 @@
+table pbi_fact_customer
+	lineageTag: 1a4c3d29-c3e0-4338-b4e1-6cb60b9e7a24
+
+	measure 客户数 = DISTINCTCOUNT( pbi_fact_customer[customer_id] )
+		formatString: 0
+		lineageTag: df4a9ff1-308a-4843-9550-28593e8aee61
+
+	measure 订单数 = DISTINCTCOUNT( pbi_fact_order[order_id] )
+		formatString: 0
+		lineageTag: 481d9867-d8d6-43c6-860f-3d2ae1cc0f71
+
+	measure 交易额 = SUM( pbi_fact_order[payment_value] )
+		lineageTag: 0d1cec84-75a8-4004-a33a-799b7963c4a7
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 客户占比 = DIVIDE( [客户数], CALCULATE( [客户数], ALL( pbi_dim_segment ) ) )
+		lineageTag: 6af0ad66-39fe-4245-bb4e-22becef68942
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 交易额占比 = DIVIDE( [交易额], CALCULATE( [交易额], ALL( pbi_dim_segment ) ) )
+		lineageTag: 83ffd6fc-b7a9-44d6-a486-ea3a08672bb8
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 人均累计消费 = DIVIDE( [交易额], [客户数] )
+		lineageTag: dbd61d84-49f9-488f-aa6b-b91e3e33f602
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 客单价 = DIVIDE( [交易额], [订单数] )
+		lineageTag: 06689782-d1ea-4cde-b58f-c4dd2ef1946b
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 复购客户数 = CALCULATE( [客户数], pbi_fact_customer[frequency] >= 2 )
+		formatString: 0
+		lineageTag: e7f80d10-245d-46e0-a4fc-49f2d93a679d
+
+	measure 复购率 = DIVIDE( [复购客户数], [客户数] )
+		lineageTag: 7150354b-ea1a-45d5-8805-b7f68a024284
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 平均评分 = AVERAGE( pbi_fact_order[review_score] )
+		lineageTag: d8a9c817-1b15-4b28-a01c-10e9397f0519
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 本月交易额 =
+			
+			CALCULATE( [交易额], DATESMTD( '日期表'[Date] ) )
+		lineageTag: 23208742-5812-455f-994c-ab27860183a9
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 月活跃客户 = DISTINCTCOUNT( pbi_fact_order[customer_id] )
+		formatString: 0
+		lineageTag: cb02d6cb-25ea-495e-8c85-b1d0c987ff7f
+
+	column customer_id
+		dataType: string
+		lineageTag: b64e7763-92f0-4e10-82c7-8bdce34a5d92
+		summarizeBy: none
+		sourceColumn: customer_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column recency_days
+		dataType: int64
+		formatString: 0
+		lineageTag: a8c7f92d-a8c6-45fc-99d6-c67b26a06088
+		summarizeBy: sum
+		sourceColumn: recency_days
+
+		annotation SummarizationSetBy = Automatic
+
+	column frequency
+		dataType: int64
+		formatString: 0
+		lineageTag: 66a78bec-77b2-47fa-a481-1b38f6d0d782
+		summarizeBy: sum
+		sourceColumn: frequency
+
+		annotation SummarizationSetBy = Automatic
+
+	column monetary_value
+		dataType: double
+		lineageTag: cdc2910b-f1e8-4b08-a1ef-0c4d26dd7502
+		summarizeBy: sum
+		sourceColumn: monetary_value
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column r_score
+		dataType: int64
+		formatString: 0
+		lineageTag: cee9c54b-2170-4864-8176-28991ffdb086
+		summarizeBy: sum
+		sourceColumn: r_score
+
+		annotation SummarizationSetBy = Automatic
+
+	column m_score
+		dataType: int64
+		formatString: 0
+		lineageTag: fb429166-8bcb-4799-aa06-a0cea40eef5f
+		summarizeBy: sum
+		sourceColumn: m_score
+
+		annotation SummarizationSetBy = Automatic
+
+	column f_score
+		dataType: int64
+		formatString: 0
+		lineageTag: 46ec195f-020b-4895-84af-7952045f2fd2
+		summarizeBy: sum
+		sourceColumn: f_score
+
+		annotation SummarizationSetBy = Automatic
+
+	column segment
+		dataType: string
+		lineageTag: c44aea54-c6ce-4660-83fd-2c8ae7c438db
+		summarizeBy: none
+		sourceColumn: segment
+
+		annotation SummarizationSetBy = Automatic
+
+	column state
+		dataType: string
+		lineageTag: 0f96ac83-1114-4cc4-8dd3-05a8cc943927
+		summarizeBy: none
+		sourceColumn: state
+
+		annotation SummarizationSetBy = Automatic
+
+	column city
+		dataType: string
+		lineageTag: bdac8f29-4d3e-44e1-a601-fe57f1544e0d
+		summarizeBy: none
+		sourceColumn: city
+
+		annotation SummarizationSetBy = Automatic
+
+	column orders
+		dataType: int64
+		formatString: 0
+		lineageTag: 16605b27-1cab-4f35-ba6c-6d8f9e8eb99c
+		summarizeBy: sum
+		sourceColumn: orders
+
+		annotation SummarizationSetBy = Automatic
+
+	column monetary
+		dataType: double
+		lineageTag: 6bf90cf1-ea8b-4681-bb70-f78355119b41
+		summarizeBy: sum
+		sourceColumn: monetary
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column avg_review
+		dataType: int64
+		formatString: 0
+		lineageTag: 5959ad14-8c5f-4ba0-ba5c-c5e4d4b85495
+		summarizeBy: sum
+		sourceColumn: avg_review
+
+		annotation SummarizationSetBy = Automatic
+
+	column first_order_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: ed9b7c7b-495c-4893-bd97-413b60c7e670
+		summarizeBy: none
+		sourceColumn: first_order_date
+
+		variation 变体
+			isDefault
+			relationship: 7721a374-889f-47cb-bd27-2f09b816d192
+			defaultHierarchy: LocalDateTable_b2c4bee6-9ccc-430a-8653-f60020a4d889.日期层次结构
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column last_order_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: b05556a8-c8ef-4a58-854a-ba330fa9d71e
+		summarizeBy: none
+		sourceColumn: last_order_date
+
+		variation 变体
+			isDefault
+			relationship: fc3a9ead-462f-4a9b-9ca7-53193de2763d
+			defaultHierarchy: LocalDateTable_0ddbcab0-451c-4d39-b864-f744ab8543e6.日期层次结构
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition pbi_fact_customer = m
+		mode: import
+		source =
+				let
+				  源 = Csv.Document(File.Contents("C:\olist_powerbi_data\pbi_fact_customer.csv"), [Delimiter = ",", Columns = 15, Encoding = 65001, QuoteStyle = QuoteStyle.None]),
+				  已提升标题 = Table.PromoteHeaders(源, [PromoteAllScalars = true]),
+				  已更改列类型 = Table.TransformColumnTypes(已提升标题, {{"customer_id", type text}, {"recency_days", Int64.Type}, {"frequency", Int64.Type}, {"monetary_value", type number}, {"r_score", Int64.Type}, {"m_score", Int64.Type}, {"f_score", Int64.Type}, {"segment", type text}, {"state", type text}, {"city", type text}, {"orders", Int64.Type}, {"monetary", type number}, {"avg_review", Int64.Type}, {"first_order_date", type date}, {"last_order_date", type date}}, "zh-Hans")
+				in
+				  已更改列类型
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,53 @@
+{
+  "name": "纯白简约-蓝灰雅黑",
+  "dataColors": [
+    "#1F4E79",
+    "#5B9BD5",
+    "#A9BCD6",
+    "#2E75B6",
+    "#BDD7EE",
+    "#D9D9D9"
+  ],
+  "background": "#FFFFFF",
+  "foreground": "#333333",
+  "foregroundNeutralSecondary": "#595959",
+  "backgroundLight": "#F7F9FB",
+  "backgroundNeutral": "#E8EDF2",
+  "tableAccent": "#1F4E79",
+  "visualStyles": {
+    "*": {
+      "*": {
+        "fontFamily": [
+          {
+            "value": "Microsoft YaHei"
+          }
+        ]
+      }
+    },
+    "card": {
+      "*": [
+        {
+          "fontFamily": [
+            {
+              "value": "Microsoft YaHei"
+            }
+          ]
+        }
+      ],
+      "border": [
+        {
+          "radius": 4
+        }
+      ],
+      "labels": [
+        {
+          "fontFamily": [
+            {
+              "value": "Microsoft YaHei"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

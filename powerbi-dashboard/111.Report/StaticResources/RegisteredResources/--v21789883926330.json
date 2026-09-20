@@ -1,0 +1,244 @@
+{
+  "name": "纯白简约-蓝灰雅黑-v2",
+  "dataColors": [
+    "#115599",
+    "#6096cc",
+    "#aaaaaa"
+  ],
+  "background": "#FFFFFF",
+  "foreground": "#333333",
+  "foregroundNeutralSecondary": "#595959",
+  "backgroundLight": "#F7F9FB",
+  "backgroundNeutral": "#E8EDF2",
+  "tableAccent": "#115599",
+  "visualStyles": {
+    "*": {
+      "categoryAxis": [
+        {
+          "fontFamily": [
+            {
+              "value": "Microsoft YaHei"
+            }
+          ],
+          "fontSize": [
+            {
+              "value": 9
+            }
+          ]
+        }
+      ],
+      "header": [
+        {
+          "fontFamily": [
+            {
+              "value": "Microsoft YaHei"
+            }
+          ],
+          "fontSize": [
+            {
+              "value": 9
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "fontFamily": [
+            {
+              "value": "Microsoft YaHei"
+            }
+          ],
+          "fontSize": [
+            {
+              "value": 9
+            }
+          ]
+        }
+      ],
+      "labels": [
+        {
+          "fontFamily": [
+            {
+              "value": "Microsoft YaHei"
+            }
+          ],
+          "fontSize": [
+            {
+              "value": 9
+            }
+          ]
+        }
+      ],
+      "legend": [
+        {
+          "fontFamily": [
+            {
+              "value": "Microsoft YaHei"
+            }
+          ],
+          "fontSize": [
+            {
+              "value": 9
+            }
+          ]
+        }
+      ],
+      "lineStyles": [
+        {
+          "showMarker": [
+            {
+              "value": false
+            }
+          ],
+          "strokeWidth": [
+            {
+              "value": 2
+            }
+          ]
+        }
+      ],
+      "valueAxis": [
+        {
+          "fontFamily": [
+            {
+              "value": "Microsoft YaHei"
+            }
+          ],
+          "fontSize": [
+            {
+              "value": 9
+            }
+          ]
+        }
+      ]
+    },
+    "card": {
+      "*": [
+        {
+          "fontFamily": [
+            {
+              "value": "Microsoft YaHei"
+            }
+          ]
+        }
+      ],
+      "border": [
+        {
+          "radius": 4
+        }
+      ],
+      "labels": [
+        {
+          "fontFamily": [
+            {
+              "value": "Microsoft YaHei"
+            }
+          ],
+          "fontSize": [
+            {
+              "value": 9
+            }
+          ]
+        }
+      ]
+    },
+    "pivotTable": {
+      "columnHeaders": [
+        {
+          "bold": [
+            {
+              "value": true
+            }
+          ],
+          "fontFamily": [
+            {
+              "value": "Microsoft YaHei"
+            }
+          ],
+          "fontSize": [
+            {
+              "value": 9
+            }
+          ]
+        }
+      ],
+      "grid": [
+        {
+          "gridHorizontal": [
+            {
+              "value": true
+            }
+          ],
+          "gridVertical": [
+            {
+              "value": false
+            }
+          ]
+        }
+      ],
+      "values": [
+        {
+          "backColorSecondary": [
+            {
+              "value": "#f3f3f3"
+            }
+          ],
+          "fontFamily": [
+            {
+              "value": "Microsoft YaHei"
+            }
+          ],
+          "fontSize": [
+            {
+              "value": 9
+            }
+          ]
+        }
+      ]
+    },
+    "slicer": {
+      "*": [
+        {
+          "fontFamily": [
+            {
+              "value": "Microsoft YaHei"
+            }
+          ]
+        }
+      ],
+      "border": [
+        {
+          "radius": 4
+        }
+      ],
+      "header": [
+        {
+          "fontFamily": [
+            {
+              "value": "Microsoft YaHei"
+            }
+          ],
+          "fontSize": [
+            {
+              "value": 9
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "fontFamily": [
+            {
+              "value": "Microsoft YaHei"
+            }
+          ],
+          "fontSize": [
+            {
+              "value": 9
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
