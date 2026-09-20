@@ -1,0 +1,10 @@
+# P1 电商客户价值分层（RFM）—— 运行依赖
+# 安装: pip install -r requirements.txt
+# 注: 数据访问用 Python 标准库 sqlite3，无需额外依赖
+pandas>=2.2
+matplotlib>=3.8
+streamlit>=1.36
+
+# 可选：看板整页截图实测（scripts/shot_dashboard.py）
+# 安装后还需执行: playwright install chromium
+playwright>=1.40
