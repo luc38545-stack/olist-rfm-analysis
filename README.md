@@ -100,7 +100,7 @@ SQL 版和 pandas 版算出的 8 类人数逐项相同，运行 `python scripts/
 | `pbi_fact_order.csv` | 96,477 | 订单级事实表：订单日期、客群、州、支付金额与方式、评分，供时间趋势和地图下钻 |
 | `pbi_dim_segment.csv` | 8 | 客群维表：中英文名、排序、定义、运营动作，供切片器和标签使用 |
 
-三张表的口径与主计算一致，脚本内置断言校验。看板工程源文件（PBIP 格式，4 页报表 + 数据模型）见 `powerbi-dashboard/` 目录，用 Power BI Desktop 打开 `111.pbip` 即可查看。
+三张表的口径与主计算一致，脚本内置断言校验。看板工程源文件（PBIP 格式，4 页报表 + 数据模型）见 `powerbi-dashboard/` 目录，用 Power BI Desktop 打开 `olist_rfm.pbip` 即可查看。
 
 ## 已知局限
 

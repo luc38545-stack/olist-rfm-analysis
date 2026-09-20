@@ -2,7 +2,7 @@
   "version": "4.0",
   "datasetReference": {
     "byPath": {
-      "path": "../111.SemanticModel"
+      "path": "../olist_rfm.SemanticModel"
     }
   }
 }
