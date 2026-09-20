@@ -27,7 +27,7 @@ SP 州数量集中只说明了客户数量这一个维度；跨州的复购率�
 # 1) 环境（Python 3.9+）
 python -m venv .venv
 source .venv/bin/activate            # Windows: .venv\Scripts\activate
-pip install pandas matplotlib streamlit requests
+pip install -r requirements.txt
 
 # 2) 下载数据（8 张 CSV -> data_olist/，跳过 61MB 的 geolocation 表）
 python scripts/download_data.py
